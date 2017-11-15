@@ -28,7 +28,7 @@ class OpenAustraliaMembers:
     def _open(self, filename):
         if ':/' in self._path:
             return urlopen(self._path + '/' + filename)
-        return open(os.path.join(self._path, filename))
+        return open(os.path.join(self._path, filename), 'rb')
 
     def _parse(self, filename):
         if filename in self._cache:
