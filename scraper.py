@@ -9,5 +9,6 @@ df = df.fillna('')
 df['office_id_number'] = df.office_id.map(lambda s: int(s.rpartition('/')[-1]))
 print('Got', len(df), 'records')
 scraperwiki.sqlite.save(unique_keys=['office_id_number'],
-                        data=df.to_dict(orient='records'))
+                        data=df.to_dict(orient='records'),
+                        table_name='data')
 scraperwiki.sql.select("* from data limit 10")
